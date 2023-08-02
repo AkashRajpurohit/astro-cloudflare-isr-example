@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-Astro.response.headers.set('Cache-Control', 's-maxage=300'); // Should cache this page for 5 minutes
+Astro.response.headers.set('Cache-Control', 's-maxage=60'); // Should cache this page for 5 minutes
 ---
 
 <Layout title='Welcome to Astro.'>
