@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+console.log('Building a fresh copy of this page');
+
 Astro.response.headers.set('Cache-Control', 's-maxage=60'); // Should cache this page for 5 minutes
 ---
 
@@ -32,7 +35,9 @@ Astro.response.headers.set('Cache-Control', 's-maxage=60'); // Should cache this
         </linearGradient>
       </defs>
     </svg>
-    <h1>Welcome to <br /><span class='text-gradient'>Astro + Cloudflare ISR</span></h1>
+    <h1>
+      Welcome to <br /><span class='text-gradient'>Astro + Cloudflare ISR</span>
+    </h1>
     <p class='instructions'>
       Current timestamp: {Date.now()}
     </p>
