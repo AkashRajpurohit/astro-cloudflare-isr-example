@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-console.log('Building a fresh copy of index page');
+export const prerender = true;
 
-Astro.response.headers.set('Cache-Control', 's-maxage=60'); // Should cache this page for 5 minutes
+console.log('Building a fresh copy of prerender page');
+
+// This should not affect anything since the page is prerendered during build time itself
+Astro.response.headers.set('Cache-Control', 's-maxage=60');
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -39,7 +42,8 @@ Astro.response.headers.set('Cache-Control', 's-maxage=60'); // Should cache this
       <span class='text-gradient'>Astro + Cloudflare ISR</span>
     </h1>
     <p class='instructions'>
-      This page is server side rendered with cache for 1 minute. Once loaded the timestamp will not change for at least 1 minute on multiple reloads as well.
+      This page is prerendered, so the timestamp will never change unless a new
+      build is pushed
     </p>
     <p>Current timestamp: {Date.now()}</p>
     <ul>
